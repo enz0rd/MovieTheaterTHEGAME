@@ -1,0 +1,9 @@
+title { 
+    color: #707070;
+    font-family: "Century Gothic";
+    font-size: 100px;
+    font-weight: bold;
+    border: #000;
+    border-width: 5px;
+    text-shadow: #000, 10px;
+}
