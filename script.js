@@ -84,30 +84,44 @@ function foods() {
     let qtd_popcorn = 0;
     let qtd_soda = 0;
     let total_value = 0;
+    let payment1 = 0;
+    let payment2 = 0;
+    let change = 0;
+    let change2 = 0;
+    let tpop_value = 0;
+    let tsoda_value = 0;
 
     alert("Welcome to Snack Shop THEGAME");
-    prompt("How much popcorns you wanna?");
-    prompt("How much sodas you wanna?");
-    total_value = (popcorn * qtd_popcorn) + (soda * qtd_soda)
+    qtd_popcorn = prompt("How much popcorns you want?");
+    qtd_soda = prompt("How much sodas you want?");
+    total_value = (popcorn * parseInt(qtd_popcorn)) + (soda * parseInt(qtd_soda))
+    
+    if (qtd_popcorn >= 0){
+        tpop_value = parseInt(popcorn) * parseInt(qtd_popcorn)
+        alert(`The value of your popcorns is: ${tpop_value}`);
+        }
+    
+    if (qtd_soda >= 0){
+        tsoda_value = soda * qtd_soda
+        alert(`The value of your sodas is ${tsoda_value}`);
+        }
+
     alert("Value Total is", total_value);
-    prompt("Insert the payment:");
-    
-    if (soda >= 0){
-        total_value = popcorn * qtd_popcorn
-        alert("The value of your popcorns is:", total_value);
-        prompt("Insert the payment:");
+    payment1 = prompt("Insert the payment:");
+    change = total_value - parseFloat(payment1);
+    if(change >= 0) {
+        alert(`The value of your change is $${change}`);
+    } else {
+        payment2 = prompt(`There is still $${change * -1} remaining to be payed. Please enter your payment:`)
+        change2 = parseFloat(change) + parseFloat(payment2);
+        while(change2 < 0) {
+            payment2 = prompt(`There is still $${change2 * -1} remaining to be payed. Please enter your payment:`)
+            change2 = parseFloat(change2) + parseFloat(payment2);
         }
-    
-    if (popcorn >= 0){
-        total_value = soda * qtd_soda
-        alert("The value of your sodas is", total_value);
-        }
-
-
-    
-
-    
+        alert(`The value of your change is $${change2}`); 
+    }
 } 
+
 document.getElementById("tickets").addEventListener("click", ticketshop);
 document.getElementById("movies").addEventListener("click", listmovies);
 document.getElementById("foods").addEventListener("click", foods);
