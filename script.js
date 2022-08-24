@@ -122,6 +122,13 @@ function foods() {
     }
 } 
 
+function submit() {
+    let name = document.getElementById('name').value;
+    let age = document.getElementById('age').value;
+    let ing = document.getElementById('ing').value;
+    console.log(name, age, ing);
+}
+
 document.getElementById("tickets").addEventListener("click", ticketshop);
 document.getElementById("movies").addEventListener("click", listmovies);
 document.getElementById("foods").addEventListener("click", foods);
